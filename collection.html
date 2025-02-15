@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection - Luxury Timepieces</title>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #D4AF37;
+            --text-color: #333;
+            --light-bg: #f8f8f8;
+            --gold: #D4AF37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+        }
+
+        .collection-header {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: transparent;
+            margin-bottom: 2rem;
+        }
+
+        .collection-header h1 {
+            color: var(--gold);
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .collection-header p {
+            color: #fff;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .watch-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .watch-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .watch-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .watch-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .watch-info {
+            padding: 2rem;
+        }
+
+        .watch-info h3 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .watch-info .price {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 1.4rem;
+            margin: 1rem 0;
+            letter-spacing: 1px;
+        }
+
+        .watch-info .description {
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .watch-info p {
+            color: #fff;
+            opacity: 0.8;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 3rem;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, var(--gold) 0%, #FFD700 100%);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .back-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .text-center {
+            text-align: center;
+        }        /* ...existing code... */
+        
+        /* Media Queries for Mobile Responsiveness */
+        @media (max-width: 768px) {
+            header {
+                padding: 1.5rem;
+            }
+        
+            header h1 {
+                font-size: 2rem;
+            }
+        
+            header p {
+                font-size: 1rem;
+            }
+        
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        
+            nav a {
+                font-size: 1rem;
+                padding: 0.5rem;
+            }
+        
+            .hero {
+                height: 400px;
+            }
+        
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+        
+            .hero p {
+                font-size: 1.2rem;
+            }
+        
+            .products {
+                padding: 2rem 1rem;
+                gap: 1.5rem;
+            }
+        
+            .product-card {
+                padding: 1rem;
+            }
+        
+            .product-card img {
+                height: 200px;
+            }
+        
+            .product-card h3 {
+                font-size: 1.4rem;
+            }
+        
+            .product-card p {
+                font-size: 1.4rem;
+            }
+        
+            .product-card button {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+        
+            footer {
+                padding: 1rem;
+            }
+        
+            .modal-content {
+                width: 90%;
+                padding: 1.5rem;
+            }
+        
+            .form-group input,
+            .form-group textarea {
+                padding: 10px;
+            }
+        
+            .form-row {
+                flex-direction: column;
+                gap: 10px;
+            }
+        
+            #checkout-btn, #checkout-form button {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        }
+        
+        /* ...existing code... */
+    </style>
+</head>
+<body>
+    <div class="collection-header">
+        <h1>Our Premium Collection</h1>
+        <p>Discover Timeless Elegance in Every Piece</p>
+    </div>
+
+    <div class="collection-grid">
+        <div class="watch-card">
+            <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSUmam6EeeJob7AqX4IHEoZoK_9GSns3sQ1SVEVytgbGhOS7jEl-DJaGY4AFGAvaq9Ke_RU0J7efuesTW4kyffGrdyknL4F2L76quum3daWHGXOtp1J-kBOpA&usqp=CAE" alt="Classic Chronograph">
+            <div class="watch-info">
+                <h3>Classic Chronograph</h3>
+                <p class="description">Elegant timepiece with precision chronograph movement</p>
+                <p class="price">₹7,082.00</p>
+                <p>Features: Chronograph, Date Display, Water Resistant</p>
+            </div>
+        </div>
+
+        <div class="watch-card">
+            <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQg_30EASu3jcjwMOkoSPfhatvtUlX4zl5o--ipgUR-nPkJMlvbqOtMFdQvZUTAK-Sh5NB1gmzocZj8jTHscY_wEbQA1OkRl1lOxpedrho" alt="Diamond Series">
+            <div class="watch-info">
+                <h3>Diamond Series</h3>
+                <p class="description">Luxurious watch adorned with premium diamonds</p>
+                <p class="price">₹19,12,887.00</p>
+                <p>Features: Diamond Bezel, Sapphire Crystal, Automatic Movement</p>
+            </div>
+        </div>
+
+        <div class="watch-card">
+            <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTJ7nvb5na3fDlrf0KDka1e8b94iZiVCi3Mku99Tjv2-xOce8UT4-GdJ5osSG79jChyDlz4USCK3AA2E3XaoN2L7CScanPaIMlwFYzKnAoN4dmZqhvCAeLNZQ&usqp=CAE" alt="Sport Edition">
+            <div class="watch-info">
+                <h3>Sport Edition</h3>
+                <p class="description">Robust timepiece designed for active lifestyles</p>
+                <p class="price">₹53,218.00</p>
+                <p>Features: Shock Resistant, 300m Water Resistance, Rotating Bezel</p>
+            </div>
+        </div>
+
+        <div class="watch-card">
+            <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcS8SuXgQbslt97eNyEMGwSTerAZAYxC9XZvxGEuRZc4sCrsRyQcRcopB1oKyxwDqvFvHb37f0q-QI2zfMxmTH1xUeE0GlnOt0XYT3Ivt352-Hz7n7lT4NJS&usqp=CAE" alt="Limited Edition">
+            <div class="watch-info">
+                <h3>Limited Edition</h3>
+                <p class="description">Exclusive timepiece with unique complications</p>
+                <p class="price">₹47,880.00</p>
+                <p>Features: Moon Phase, Perpetual Calendar, Limited Series</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <a href="index.html" class="back-link">Back to Main Page</a>
+    </div>
+</body>
+</html>

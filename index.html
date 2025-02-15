@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Watches - Gold Collection</title>
+    <style>
+        :root {
+            --primary-color: #1a120b; /* Rich dark brown */
+            --accent-color: #d4af37; /* Classic gold */
+            --text-color: #333;
+            --light-bg: #fffaf0; /* Warm ivory */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        header {
+            background: linear-gradient(45deg, var(--primary-color), #2a2018);
+            color: var(--accent-color);
+            padding: 2.5rem;
+            text-align: center;
+            border-bottom: 4px solid var(--accent-color);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            color: #e5d8b4;
+            font-size: 1.3rem;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            background: var(--primary-color);
+            padding: 1.2rem;
+            box-shadow: 0 4px 15px rgba(210, 175, 55, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+        }
+
+        nav a {
+            color: #e5d8b4;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+            background: rgba(212, 175, 55, 0.1);
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .hero {
+            background-image: linear-gradient(rgba(26, 18, 11, 0.7), rgba(26, 18, 11, 0.7)), url('https://img.freepik.com/free-vector/abstract-concept-golden-line-background_1409-1122.jpg?t=st=1739606191~exp=1739609791~hmac=65a57057d61ffa6d2c30ed7bacc6cad217224268daa9705d6b2c703a779e14ac&w=1380'); /* Replace with actual luxury watch image URL */
+            background-size: cover;
+            background-position: center;
+            height: 650px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-bottom: 4px solid var(--accent-color);
+        }
+
+        .hero h2 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.8rem;
+            color: #e5d8b4;
+            letter-spacing: 1px;
+        }
+
+        .products {
+            padding: 5rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            background: var(--light-bg);
+            margin-bottom: 100px;
+        }
+
+        .product-card {
+            background: linear-gradient(145deg, #ffffff, #fff8e1);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 2px solid var(--accent-color);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            border: 2px solid var(--primary-color);
+        }
+
+        .product-card h3 {
+            color: var(--primary-color);
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-card p {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-card button {
+            background: var(--accent-color);
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 1rem 2.5rem;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .product-card button:hover {
+            background: var(--primary-color);
+            color: var(--accent-color);
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: linear-gradient(45deg, var(--primary-color), #2a2018);
+            color: var(--accent-color);
+            text-align: center;
+            padding: 2rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            border-top: 4px solid var(--accent-color);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: linear-gradient(145deg, #ffffff, #fff8e1);
+            margin: 5% auto;
+            padding: 2.5rem;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 15px;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 2px solid var(--accent-color);
+            margin-bottom: 5%;
+        }
+
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 15px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--primary-color);
+            transition: color 0.3s;
+        }
+
+        .close:hover {
+            color: var(--accent-color);
+        }
+
+        #cart-items {
+            margin: 25px 0;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            align-items: center;
+        }
+
+        .remove-item {
+            color: #b22222;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .remove-item:hover {
+            color: #ff0000;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--accent-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            background: white;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        #checkout-btn, #checkout-form button {
+            background: var(--accent-color);
+            color: var(--primary-color);
+            padding: 15px 30px;
+            border: 2px solid var(--primary-color);
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        #checkout-btn:hover, #checkout-form button:hover {
+            background: var(--primary-color);
+            color: var(--accent-color);
+            transform: scale(1.02);
+        }
+
+        #billing-form {
+            margin-top: 30px;
+            border-top: 2px solid var(--accent-color);
+            padding-top: 30px;
+        }
+        /* Style for month input to match your design */
+        input[type="month"] {
+            padding: 8px;
+            width: 100%;
+            box-sizing: border-box;
+            border: 2px solid var(--primary-color);
+            border-radius: 4px;
+            background-color: white;
+            font-family: inherit;
+        }
+        /* Media Queries for Mobile Responsiveness */
+        @media (max-width: 768px) {
+            header {
+                padding: 1.5rem;
+            }
+        
+            header h1 {
+                font-size: 2rem;
+            }
+        
+            header p {
+                font-size: 1rem;
+            }
+        
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        
+            nav a {
+                font-size: 1rem;
+                padding: 0.5rem;
+            }
+        
+            .hero {
+                height: 400px;
+            }
+        
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+        
+            .hero p {
+                font-size: 1.2rem;
+            }
+        
+            .products {
+                padding: 2rem 1rem;
+                gap: 1.5rem;
+            }
+        
+            .product-card {
+                padding: 1rem;
+            }
+        
+            .product-card img {
+                height: 200px;
+            }
+        
+            .product-card h3 {
+                font-size: 1.4rem;
+            }
+        
+            .product-card p {
+                font-size: 1.4rem;
+            }
+        
+            .product-card button {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+        
+            footer {
+                padding: 1rem;
+            }
+        
+            .modal-content {
+                width: 90%;
+                padding: 1.5rem;
+            }
+        
+            .form-group input,
+            .form-group textarea {
+                padding: 10px;
+            }
+        
+            .form-row {
+                flex-direction: column;
+                gap: 10px;
+            }
+        
+            #checkout-btn, #checkout-form button {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Golden Horology</h1>
+        <p>Where Time Meets Elegance</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="./home.html">Home</a></li>
+            <li><a href="./collection.html">Collection</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+            <li><a href="#" id="cart-icon">Cart (<span id="cart-count">0</span>)</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div>
+            <h2>Golden Era Collection</h2>
+            <p>Crafted with Precision, Adorned with Gold</p>
+        </div>
+    </section>
+
+    <section class="products">
+        <div class="product-card">
+            <img src="https://img.chrono24.com/images/uhren/22683798-manxtpewc8py0smibeoaao5t-Zoom.jpg" alt="Royal Chronograph">
+            <h3>Royal Chronograph</h3>
+            <p>₹18,100.00</p>
+            <button onclick="addToCart('Royal Chronograph', 18100.00)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTE6YipbjsAW2bvbNPf-eg78sM5sRHsEcUixD6QKEcm3IjP0FZZUtZsCpUMzOUt9udP4EoKU57M5rrRe0OWZywzNQsghhwZFA&usqp=CAY" alt="Imperial Gold">
+            <h3>Imperial Gold</h3>
+            <p>₹4,999.00</p>
+            <button onclick="addToCart('Imperial Gold', 4999)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+            <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRaWbl4qINVAxgvtmyp7cfUULk3ywEy6a6u__LCEHnkXHhmN87AORo0SGhfDD8QjvJxCiHP_O4KbxROGOFtaKjJuPiuqSaB&usqp=CAY" alt="Heritage Edition">
+            <h3>Heritage Edition</h3>
+            <p>₹27,300.00</p>
+            <button onclick="addToCart('Heritage Edition', 27300.00)">Add to Cart</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Golden Horology. All rights reserved.</p>
+    </footer>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 style="color: var(--primary-color);">Golden Cart</h2>
+            <div id="cart-items"></div>
+            <div id="cart-total" style="color: var(--primary-color); font-weight: 600;">Total: ₹0</div>
+            <button id="checkout-btn" onclick="showBillingForm()" style="display: none;">Proceed to Checkout</button>
+            
+            <div id="billing-form" style="display: none;">
+                <h3 style="color: var(--primary-color);">Gilded Checkout</h3>
+                <form id="checkout-form" onsubmit="processCheckout(event)">
+                    <div class="form-group">
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <textarea id="address" required></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="card">Card Number:</label>
+                            <input type="text" id="card" maxlength="16" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="expiry">Expiry Date:</label>
+                            <input type="month" id="expiry" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV:</label>
+                            <input type="text" id="cvv" maxlength="3" required>
+                        </div>
+                    </div>
+                    <button type="submit">Complete Purchase</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    
+        // JavaScript code for cart functionality
+        let cart = [];
+        let cartCount = document.getElementById('cart-count');
+        let cartItems = document.getElementById('cart-items');
+        let cartTotal = document.getElementById('cart-total');
+        let checkoutBtn = document.getElementById('checkout-btn');
+        let cartModal = document.getElementById('cart-modal');
+        let closeModal = document.getElementsByClassName('close')[0];
+        let cartIcon = document.getElementById('cart-icon'); // Define cartIcon
+
+        function addToCart(name, price) {
+            cart.push({ name: name, price: price });
+            updateCart();
+        }
+
+        function updateCart() {
+            cartCount.innerText = cart.length;
+            cartItems.innerHTML = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <span>${item.name}</span>
+                    <span>₹${item.price}</span>
+                    <span class="remove-item" onclick="removeFromCart('${item.name}')">&times;</span>
+                `;
+                cartItems.appendChild(cartItem);
+                total += item.price;
+            });
+
+            cartTotal.innerText = `Total: ₹${total}`;
+            checkoutBtn.style.display = cart.length > 0 ? 'block' : 'none';
+        }
+
+        function removeFromCart(name) {
+            cart = cart.filter(item => item.name !== name);
+            updateCart();
+        }
+
+        // Show cart modal
+        cartIcon.onclick = function () {
+            cartModal.style.display = 'block';
+        }
+
+        // Close cart modal
+        closeModal.onclick = function () {
+            cartModal.style.display = 'none';
+        }
+
+        // Checkout
+        function showBillingForm() {
+            document.getElementById('billing-form').style.display = 'block';
+            document.getElementById('checkout-btn').style.display = 'none';
+        }
+
+        function processCheckout(event) {
+            event.preventDefault();
+            // Process payment, save details, etc.
+            alert('Purchase Complete!');
+            cart = []; // Clear cart
+            updateCart();
+            cartModal.style.display = 'none';
+        }
+    </script>
+</body>
+</html>

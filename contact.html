@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Luxury Timepieces</title>
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #c4a747;
+            --text-color: #333;
+            --light-bg: #f5f5f5;
+            --gold: #D4AF37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+        }
+
+        .contact-header {
+            background: transparent;
+            padding: 6rem 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: white;
+        }
+
+        .contact-header h1 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .contact-header p {
+            color: #fff;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #eee;
+            border-radius: 10px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--gold);
+            outline: none;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+        }
+
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        button {
+            background: linear-gradient(135deg, var(--gold) 0%, #FFD700 100%);
+            color: var(--primary-color);
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .contact-method {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-method:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-method h3 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-method p {
+            color: var(--text-color);
+            font-size: 1.1rem;
+        }
+
+        .map-container {
+            margin-top: 2rem;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin: 3rem;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, var(--gold) 0%, #FFD700 100%);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .back-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .text-center {
+            text-align: center;
+        }        /* ...existing code... */
+        
+        /* Media Queries for Mobile Responsiveness */
+        @media (max-width: 768px) {
+            header {
+                padding: 1.5rem;
+            }
+        
+            header h1 {
+                font-size: 2rem;
+            }
+        
+            header p {
+                font-size: 1rem;
+            }
+        
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        
+            nav a {
+                font-size: 1rem;
+                padding: 0.5rem;
+            }
+        
+            .hero {
+                height: 400px;
+            }
+        
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+        
+            .hero p {
+                font-size: 1.2rem;
+            }
+        
+            .products {
+                padding: 2rem 1rem;
+                gap: 1.5rem;
+            }
+        
+            .product-card {
+                padding: 1rem;
+            }
+        
+            .product-card img {
+                height: 200px;
+            }
+        
+            .product-card h3 {
+                font-size: 1.4rem;
+            }
+        
+            .product-card p {
+                font-size: 1.4rem;
+            }
+        
+            .product-card button {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+        
+            footer {
+                padding: 1rem;
+            }
+        
+            .modal-content {
+                width: 90%;
+                padding: 1.5rem;
+            }
+        
+            .form-group input,
+            .form-group textarea {
+                padding: 10px;
+            }
+        
+            .form-row {
+                flex-direction: column;
+                gap: 10px;
+            }
+        
+            #checkout-btn, #checkout-form button {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        }
+        
+        /* ...existing code... */
+    </style>
+</head>
+<body>
+    <div class="contact-header">
+        <h1>Contact Us</h1>
+        <p>Experience Luxury at Your Service</p>
+    </div>
+
+    <div class="contact-container">
+        <div class="contact-form">
+            <h2>Send us a Message</h2>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+
+        <div class="contact-info">
+            <h2>Get in Touch</h2>
+            <div class="contact-method">
+                <h3>Visit Us</h3>
+                <p>Luxury Timepieces</p>
+                <p>kannamangalam po, achanambalam</p>
+            </div>
+            <div class="contact-method">
+                <h3>Business Hours</h3>
+                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                <p>Saturday: 10:00 AM - 4:00 PM</p>
+                <p>Sunday: Closed</p>
+            </div>
+            <div class="contact-method">
+                <h3>Contact Details</h3>
+                <p>Phone: +91 77369 62907</p>
+                <p>Email: muhammedmishab@flashco.com</p>
+            </div>
+            <div class="map-container">
+                <iframe src="https://maps.app.goo.gl/W4fLCjfS1YqvvsYR9" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <a href="index.html" class="back-link">Back to Main Page</a>
+    </div>
+</body>
+</html>
